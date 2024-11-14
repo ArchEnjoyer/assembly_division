@@ -133,7 +133,7 @@ exit:
 string_to_int: ; rsi has pointer to the string in stack, need to copy byte by byte and convert it 
     ;rdx is a counter of len
     mov r13, r12 ; here will lay first argument; in r12 will lay second argument
-	xor r12, r12 ; clear preveous int
+	xor r12, r12 ; clear previous int
     mov r9, rdx
 next_digit:
     xor rax, rax
