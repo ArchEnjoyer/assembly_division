@@ -87,17 +87,17 @@ without_save:
     shr rbp, 1 ; если цикл деления возможен, единичка регистра rbp, идущая вдоль числа, прибавится к частному rax
     jnz cycle
 
-end_of_cycle: 
+end_of_cycle: ; печать ответа на экран
     mov rdx, r9
     xor r9, r9
     ;в RAX место под частное, в RDX - остаток
     push rbp
     mov rbp, rsp
     sub rsp, 16
-    mov rdi, message ;
-    mov rsi, rax
-    mov rax, 0
-    call printf
+    mov rdi, message ; форматированная строка
+    mov rsi, rax ; частное
+    mov rax, 0 ; число аргументов с плавающей запятой
+    call printf ; вызов функции для печати ответа
     add rsp, 16
     mov rsp, rbp
     pop rbp
